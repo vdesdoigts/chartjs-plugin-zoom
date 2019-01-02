@@ -344,6 +344,24 @@ var zoomPlugin = {
 			chartInstance.update();
 		};
 
+		chartInstance.zoomIn = function () {
+			var rect = document.getElementById(chartInstance.canvas.id).getBoundingClientRect();
+			var center = {
+				x: rect.width / 2,
+				y: rect.height / 2
+			};
+			doZoom(chartInstance, 1.1, center);
+		};
+
+		chartInstance.zoomOut = function () {
+			var rect = document.getElementById(chartInstance.canvas.id).getBoundingClientRect();
+			var center = {
+				x: rect.width / 2,
+				y: rect.height / 2
+			};
+
+			doZoom(chartInstance, 0.909, center);
+		};
 	},
 
 	beforeInit: function(chartInstance) {
